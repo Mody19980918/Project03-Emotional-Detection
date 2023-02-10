@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="body">
+    <div id="title">
+      <h1>Registration</h1>
+    </div>
+    <div id="registerInformationContainer">
+      <ion-item>
+        <ion-label id="username" position="floating">Username: </ion-label>
+        <ion-input
+          type="text"
+          (ionFocus)="displayErrorUsernameMessage()"
+          (ionChange)="checkUsernameLength(username)"
+          [placeholder]="placerHolderUsername"
+          [(ngModel)]="username"
+        ></ion-input>
+        <ng-container *ngIf="displayErrorUsernameMessageBoolean">
+          <div [hidden]="errorOfUsernameMessageBoolean" style="color: red">
+            {{errorOfUsername}}
+          </div>
+        </ng-container>
+      </ion-item>
+      <ion-item>
+        <ion-label id="password" position="floating">Password: </ion-label>
+        <ion-input
+          type="password"
+          (ionFocus)="displayErrorPasswordMessage()"
+          (ionChange)="checkPasswordLength(password)"
+          [placeholder]="placerHolderPassword"
+          [(ngModel)]="password"
+        ></ion-input>
+        <ng-container *ngIf="displayErrorPasswordMessageBoolean">
+          <div [hidden]="errorOfPasswordMessageBoolean" style="color: red">
+            {{errorOfPassword}}
+          </div>
+        </ng-container>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email: </ion-label>
+        <ion-input
+          type="email"
+          (ionFocus)=" displayErrorEmailMessage()"
+          (ionChange)="checkEmailFormat(email)"
+          [placeholder]="placerHolderEmail"
+          [(ngModel)]="email"
+        ></ion-input>
+        <ng-container *ngIf="displayErrorEmailMessageBoolean">
+          <div [hidden]="errorOfEmailMessageBoolean" style="color: red">
+            {{errorOfEmail}}
+          </div></ng-container
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label>Gender:</ion-label>
+        <ion-select
+          id="gender"
+          [(ngModel)]="gender"
+          (ionChange)="checkGenderLength(gender)"
+          (ionFocus)="displayErrorGenderMessage()"
+        >
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="other">Other</ion-select-option>
+        </ion-select>
+        <ng-container *ngIf="displayErrorGenderMessageBoolean">
+          <div [hidden]="errorOfGenderBoolean" style="color: red">
+            {{errorOfGender}}
+          </div>
+        </ng-container>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Age:</ion-label>
+        <ion-input
+          type="number"
+          (ionChange)="checkAgeLength(age)"
+          (ionFocus)="displayErrorAgeMessage()"
+          [placeholder]="placerHolderAge"
+          [(ngModel)]="age"
+        ></ion-input>
+        <ng-container *ngIf="displayErrorAgeMessageBoolean">
+          <div [hidden]="errorOfAgeBoolean" style="color: red">
+            {{errorOfAge}}
+          </div>
+        </ng-container>
+      </ion-item>
+      <p>Please input All of Information</p>
+      <p>
+        <ion-button
+          color="secondary "
+          (click)="registerAccount()"
+          [disabled]="!checkAccount()"
+          >Register</ion-button
+        >
+      </p>
+    </div>
+  </div>
+</ion-content>

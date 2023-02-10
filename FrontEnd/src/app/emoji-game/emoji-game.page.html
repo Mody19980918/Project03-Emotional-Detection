@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home" (click)='endBackgroundMusic()'></ion-back-button>
+    </ion-buttons>
+    <ion-title>Emoji Game</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="changeDarkModeAndLightMode()">
+
+      </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" >
+        <ion-button (click)="changeDarkModeAndLightMode()">
+        </ion-button>
+        </ion-buttons>
+        <ion-button color="dark" slot="end" (click)="changeDarkModeAndLightMode()">
+          <ion-icon slot="icon-only" name="moon" *ngIf="!darkStatus"></ion-icon>
+          <ion-icon slot="icon-only" name="sunny" *ngIf="darkStatus"></ion-icon>
+        </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-row>
+    <ion-col [hidden]="!isStarted" class="timeContainer">
+
+      <h1>Time Left: {{timeLeft}}s</h1> 
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="timeContainer">
+        <h1>Score: {{playerScore}}</h1>
+      </ion-col> 
+    </ion-row>
+    <ion-col class="timeContainer">
+      <h1>We need {{currentRequireEmotions.Emojis}} Now!</h1>
+</ion-col>
+  
+    <div class="stats-container" [hidden]="!isStarted"></div>
+    <div class="ion-text-center" [hidden]="!isStarted">
+      <video autoplay ></video>
+    </div>
+    <ion-row >
+      <ion-col class="ion-align-self-center">
+        <ion-button (click)="end()" *ngIf="isStarted">End Game</ion-button> 
+
+      </ion-col>
+    </ion-row>
+
+    
+  
+</ion-content>

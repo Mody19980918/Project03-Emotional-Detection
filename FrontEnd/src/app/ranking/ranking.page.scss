@@ -1,0 +1,14 @@
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.item {
+  transition-duration: 0.3s;
+}
+
+.item:hover {
+  cursor: pointer;
+  margin: 5px;
+  color: rgb(190, 190, 190);
+}

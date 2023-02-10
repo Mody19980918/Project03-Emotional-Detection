@@ -1,0 +1,137 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Welcome! </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-card>
+      <ion-card-header (click)="goToHomePage()">
+        <ion-item class="item">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Home</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item id="logout" class="item" (click)="goToRankingPage()">
+          <ion-icon name="globe-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Ranking</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item id="logout" class="item" (click)="goToPayment()">
+          <ion-icon name="card-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Donation</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item id="logout" class="item" (click)="goToRecord()">
+          <ion-icon name="book-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Record</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item id="logout" class="item" (click)="goToUserInformation()">
+          <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+          <span class="icon"><p>User information</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-menu-toggle>
+      <ion-buttons>
+        <ion-button>Close</ion-button>
+      </ion-buttons>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+<div id="main-content">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>My account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</div>
+
+<ion-content class="ion-padding">
+  <ion-item
+    id="logout"
+    class="item"
+    (click)="goToUserInformation()"
+    *ngIf="user$ | async as user"
+  >
+    <div id="personalIcon">
+      <ng-boring-avatars-beam-avatar
+        [name]="user.username"
+        [colors]="['#a3a948','#edb92e','#f85931','#ce1836','#009989']"
+        [inputSize]="80"
+      ></ng-boring-avatars-beam-avatar>
+    </div>
+
+    <div id="username">{{user.username}}</div>
+
+    <ng-container *ngIf="user.gender == 'male'">
+      <div class="maleAndFemaleIcon">
+        <img
+          alt="Silhouette of a person's head"
+          src="/assets/Male_icon.png"
+          width="30px"
+          margin-left="10px"
+        />
+      </div>
+    </ng-container>
+    <ng-container *ngIf="user.gender == 'female'">
+      <div class="maleAndFemaleIcon">
+        <img
+          alt="Silhouette of a person's head"
+          src="/assets/Female_icon.png"
+          width="30px"
+        />
+      </div>
+    </ng-container>
+  </ion-item>
+
+  <ion-item class="item" (click)="goToPayment()">
+    <ion-icon name="card-outline" slot="start"></ion-icon>
+    <p>Donation</p>
+  </ion-item>
+
+  <ion-item class="item" (click)="goToRecord()">
+    <ion-icon name="book-outline" slot="start"></ion-icon>
+    <p>Record</p>
+  </ion-item>
+
+  <ion-item class="item" (click)="changeDarkModeAndLightMode()">
+    <ion-icon name="book-outline" slot="start"></ion-icon>
+    <p>Dark Mode</p>
+    <!-- {{darkStatus}} -->
+  </ion-item>
+
+  <ion-item id="logout" class="item" (click)="logoutAccount()">
+    <ion-icon
+      name="alert-outline"
+      id="outline"
+      slot="start"
+      color="danger"
+    ></ion-icon>
+    <p>
+      <ion-text color="danger">Logout</ion-text>
+    </p>
+  </ion-item>
+</ion-content>

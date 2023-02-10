@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar id="title">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Golden Sentence</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content id="background" class="ion-text-center">
+  <ion-row>
+    <ion-col>
+      <ion-card class="ioncard" padding="10px">
+        <h2>
+          Here are the Emotions you need
+          <ul>
+            <li>~🤣 😆HAPPY🤣 😆~</li>
+          </ul>
+          <ul>
+            <li>🫣 🙀Fearful🫣 🙀</li>
+          </ul>
+          <ul>
+            <li>😟 😭Sad😟 😭</li>
+          </ul>
+          <ul>
+            <li>😒 🤢Disgusted😒 🤢</li>
+          </ul>
+          <ul>
+            <li>😐 🫥Neutral😐 🫥</li>
+          </ul>
+          <ul>
+            <li>🤩 🤯Surprised🤩 🤯</li>
+          </ul>
+          <ul>
+            <li>🤬 👿Angry🤬 👿</li>
+          </ul>
+        </h2>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card-content id="videoContainer">
+        <h2 id="predictContainer" [hidden]="!start" padding-top="10px">
+          Situation : {{goldenSentenceQuestion.Situation}}
+        </h2>
+        <video autoplay></video>
+        <ion-progress-bar color="medium" [value]="progress"></ion-progress-bar>
+
+        <div class="predictContainer">
+          <p id="predictContainer">{{predictResult}}</p>
+        </div>
+      </ion-card-content>
+    </ion-col>
+    <ion-col>
+      <ion-button [hidden]="isStarted" (click)="start()" color="danger"
+        >Game Start</ion-button
+      >
+      <div class="timeContainer">
+        <h2 [hidden]="!isStarted">You have still have {{timeLeft}}s</h2>
+      </div>
+      <div class="scoresContainer">
+        <p>Score: {{playerScore}}</p>
+        <div id="stats-container">{{statusText}}</div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<!-- QA -->
+<!-- if statusText show Game Over . timeLeft =0 .restart the status -->
+<!-- QA -->
+<!-- entry page show loading -->
+<!-- QA -->
+<!-- set interval can stay in my alert model ?async to do loading? -->
+<!-- QA -->
+<!-- How to save a score -->
+<!-- QA -->
+<!-- Timeout bar -->

@@ -1,0 +1,112 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Welcome! </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <ion-card-header (click)="routerModel('/tabs/setting')">
+        <ion-item class="item">
+          <ion-icon name="cog-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Setting</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item
+          id="logout"
+          class="item"
+          (click)="routerModel('/tabs/ranking')"
+        >
+          <ion-icon name="globe-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Ranking</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item id="logout" class="item" (click)="routerModel('/payment')">
+          <ion-icon name="card-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Donation</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item id="logout" class="item" (click)="routerModel('/record')">
+          <ion-icon name="book-outline" slot="start"></ion-icon>
+          <span class="icon"><p>Record</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-item
+          id="logout"
+          class="item"
+          (click)="routerModel('/user-information')"
+        >
+          <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+          <span class="icon"><p>User information</p></span>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-menu-toggle>
+      <ion-buttons>
+        <ion-button>Close</ion-button>
+      </ion-buttons>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+
+<div id="main-content"></div>
+<ion-header [translucent]="true">
+  <ion-toolbar id="">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title id="headerTitle">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" sizeSm="12" size="12">
+        <div id="emojiGameContainer">
+          <p class="gameTitle">{{emojiGameTitle}}</p>
+          <div id="gameImage">
+            <img src="assets/Removal-168.png" width="200px" />
+          </div>
+          <ion-button
+            color="medium"
+            class="gsStartBtn"
+            (click)="routerModel('/emoji-game')"
+            >{{buttonStart}}</ion-button
+          >
+        </div>
+      </ion-col>
+      <ion-col sizeMd="6" sizeSm="12" size="12">
+        <div id="goldenSentenceGameContainer">
+          <p class="gameTitle">{{goldenSentenceGameTitle}}</p>
+          <div id="gameImage">
+            <img src="assets/goldenmaskkk.png" width="300px" />
+          </div>
+          <ion-button
+            color="medium"
+            class="gsStartBtn"
+            (click)="routerModel('/golden-sentence')"
+            >{{buttonStart}}</ion-button
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirm Username</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="title">
+    Please input your username and email to confirm your identity
+  </div>
+  <div id="usernameAndEmailContainer">
+    <ion-item>
+      <ion-label id="username" position="floating">Username</ion-label>
+      <ion-input
+        type="text"
+        [placeholder]="user.username"
+        [(ngModel)]="user.username"
+        (keypress)="confirmWithKeyboard($event)"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label id="email" position="floating">Email</ion-label>
+      <ion-input
+        type="email"
+        [placeholder]="user.email"
+        [(ngModel)]="user.email"
+        (keypress)="confirmWithKeyboard($event)"
+      ></ion-input>
+    </ion-item>
+    <ion-button (click)="confirmUser()">Click here</ion-button>
+  </div>
+</ion-content>

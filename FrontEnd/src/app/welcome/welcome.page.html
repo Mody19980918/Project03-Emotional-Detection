@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="ion-justify-content-start">
+        <div id="welcomeTitleContainer">
+          <img src="assets/wellcomeicon.png" width="100px" />
+          <p id="welcomeTitle">Welcome Emoji World</p>
+        </div>
+
+        <!-- "ion-justify-content-end" -->
+        <ion-col
+          offset="4.5"
+          sizeLg="1"
+          sizeMd="2"
+          sizeSm="4"
+          (click)="routerModel('/login')"
+        >
+          <ion-button class="ion-justify-content-end topBtn" color="dark"
+            >{{loginPage}}</ion-button
+          >
+        </ion-col>
+        <ion-col
+          sizeLg="1"
+          sizeMd="2"
+          sizeSm="4"
+          (click)="routerModel('/register')"
+        >
+          <ion-button class="ion-justify-content-end topBtn" color="medium"
+            >{{registerPage}}</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="6" sizeSm="12" size="12">
+        <div id="emojiGameContainer">
+          <p class="gameTitle">{{emojiGameTitle}}</p>
+          <div id="gameImage">
+            <img src="assets/Removal-168.png" width="200px" />
+          </div>
+          <ion-button
+            color="medium"
+            class="gsStartBtn"
+            (click)="routerModel('/emoji-game')"
+            >{{buttonStart}}</ion-button
+          >
+        </div>
+      </ion-col>
+      <ion-col sizeMd="6" sizeSm="12" size="12">
+        <div id="goldenSentenceGameContainer">
+          <p class="gameTitle">{{goldenSentenceGameTitle}}</p>
+          <div id="gameImage">
+            <img src="assets/goldenmaskkk.png" width="300px" />
+          </div>
+          <ion-button
+            color="medium"
+            class="gsStartBtn"
+            (click)="routerModel('/golden-sentence')"
+            >{{buttonStart}}</ion-button
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,19 @@
+.chart-container {
+  position: relative;
+  height: 50vw;
+  width: 50vw;
+
+  max-height: calc((100vh - 56px - 20px - 10px - 2rem) / 2);
+  max-width: calc((100vh - 56px - 20px - 10px - 2rem) / 2);
+
+  margin: auto;
+}
+.chart-title {
+  text-align: center;
+}
+
+#PieAndLineContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

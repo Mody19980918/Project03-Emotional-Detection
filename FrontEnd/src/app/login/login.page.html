@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="headerTitle">Login Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div id="body">
+    <div id="login">Login</div>
+
+    <div id="userContainer">
+      <ion-item>
+        <ion-label id="username" class="user" position="floating"
+          >Username
+        </ion-label>
+        <ion-input
+          type="text"
+          [placeholder]="username"
+          [(ngModel)]="username"
+          (keypress)="loginWithKeyboard($event)"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label id="password" class="user" position="floating"
+          >Password
+        </ion-label>
+        <ion-input
+          [type]="watchPassword ? 'text' : 'password'"
+          [placeholder]="password"
+          [(ngModel)]="password"
+          (keypress)="loginWithKeyboard($event)"
+        ></ion-input>
+        <ion-buttons slot="end" class="icon">
+          <ion-button (click)="watchPassword = !watchPassword">
+            <ion-icon
+              [name]="watchPassword ? 'eye-off-outline' : 'eye'"
+            ></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <div id="loginButtonAndForgetPasswordContainer">
+        <ion-button (click)="loginAccount()">Login</ion-button>
+        <div id="forgetPasswordContainer">
+          <p>
+            <a routerLink="/forget">Forget password?</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="register">
+      <p>
+        New to here,
+        <br />
+        <a routerLink="/register">click here to register</a>
+      </p>
+    </div>
+    <div id="platformContainer">
+      <div class="platform">Or login with another platform</div>
+      <br />
+      <div id="googleLogin">
+        <asl-google-signin-button
+          type="icon"
+          size="medium"
+        ></asl-google-signin-button>
+      </div>
+    </div>
+
+    <!-- <ion-button (click)="loginGoogle()">Google Login</ion-button> -->
+  </div>
+</ion-content>

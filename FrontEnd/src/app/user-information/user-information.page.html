@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/setting"></ion-back-button>
+    </ion-buttons>
+    <ion-title>user-information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="userInformationContainer" *ngIf="user$ | async as user">
+    <ion-item class="ion-padding">
+      <ion-label position="floating">username:</ion-label>
+      <ion-input
+        type="text"
+        (ionFocus)="focusedField = 'username'"
+        [placeholder]="placerHolderUsername"
+        [(ngModel)]="user.username"
+      ></ion-input>
+      <ng-container
+        *ngIf="focusedField == 'username' && !validateUsername(user.username)"
+      >
+        <div style="color: red">
+          <p>{{errorOfUsername}}</p>
+        </div>
+      </ng-container>
+    </ion-item>
+
+    <ion-item class="ion-padding">
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input
+        type="email"
+        (ionFocus)="focusedField = 'email'"
+        [placeholder]="placeholderEmail"
+        [(ngModel)]="user.email"
+      ></ion-input>
+      <ng-container
+        *ngIf="focusedField == 'email' && !validateEmail(user.email)"
+      >
+        <div style="color: red">{{errorOfEmail}}</div>
+      </ng-container>
+    </ion-item>
+    <ion-item class="ion-padding">
+      <ion-label>Gender:</ion-label>
+      <ion-select
+        id="gender"
+        (ionFocus)="focusedField = 'gender'"
+        [(ngModel)]="user.gender"
+      >
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+      <ng-container
+        *ngIf="focusedField == 'gender' &&!validateGender(user.gender)"
+      >
+        <div style="color: red">{{errorOfGender}}</div>
+      </ng-container>
+    </ion-item>
+    <ion-item class="ion-padding">
+      <ion-label position="floating">Age:</ion-label>
+      <ion-input
+        type="number"
+        (ionFocus)="focusedField = 'age'"
+        [(ngModel)]="user.age"
+      ></ion-input>
+      <ng-container *ngIf="focusedField == 'age' &&!validateAge(user.age)">
+        <div style="color: red">{{errorOfAge}}</div>
+      </ng-container>
+    </ion-item>
+    <a routerLink="/changepassword">Change password?</a>
+    <p>Please input All of Information</p>
+    <ion-button
+      [disabled]="!checkAccount(user)"
+      (click)="changeUserInformation(user)"
+      >Submit</ion-button
+    >
+  </div>
+</ion-content>

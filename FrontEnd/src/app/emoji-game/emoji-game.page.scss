@@ -1,0 +1,35 @@
+.timeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.stats-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  height: auto;
+  width: 80vw;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+video {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  // visibility: hidden;
+  width: auto;
+  height: auto;
+}
+.endButton {
+
+  justify-content: center;
+  align-items: center;
+  
+}
+

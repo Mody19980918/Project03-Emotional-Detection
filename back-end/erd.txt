@@ -1,0 +1,36 @@
+users
+-----
+id integer PK
+admin boolean
+username varchar(255)
+password varchar(255)
+email varchar(255) NULL
+
+
+
+
+gameplay
+------------
+id integer PK
+users_id integer FK >- users.id
+score integer NULL
+date_created date NULL
+
+
+
+
+payment
+--------------
+id integer PK
+email varchar(255) NULL
+price integer 
+time timestamp 
+
+
+user_id integer NULL FK >- users.id
+
+
+# users (403, -11)
+# gameplay (0, 0)
+# payment (837, -3)
+# view: (363, 306)

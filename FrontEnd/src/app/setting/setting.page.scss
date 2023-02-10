@@ -1,0 +1,27 @@
+#outline {
+  text-align: center;
+}
+
+.item {
+  transition-duration: 0.3s;
+}
+
+.item:hover {
+  cursor: pointer;
+  margin: 5px;
+  color: rgb(190, 190, 190);
+}
+
+#personalIcon {
+  margin: 10px;
+}
+
+#username {
+  font-size: 30px;
+  margin-left: 20px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.maleAndFemaleIcon {
+  margin-left: 10px;
+}

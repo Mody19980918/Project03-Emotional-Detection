@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Admin Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div hidden>{{userStats$ | async}}</div>
+  <div id="PieAndLineContainer">
+    <div class="chart-cell">
+      <h1 class="chart-title">All time member of Gender</h1>
+      <div class="chart-container" *ngIf="pieChartDatasets[0].data.length >= 1">
+        <canvas
+          baseChart
+          [type]="'pie'"
+          [datasets]="pieChartDatasets"
+          [labels]="pieChartLabels"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend"
+          id="chart-container"
+        >
+        </canvas>
+      </div>
+    </div>
+    <div class="chart-cell">
+      <h1 class="chart-title">The Register member per month</h1>
+      <div
+        class="chart-container"
+        *ngIf="lineChartData.datasets[0].data.length >= 1"
+      >
+        <canvas
+          baseChart
+          width="400"
+          height="400"
+          [type]="'line'"
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend"
+        >
+        </canvas>
+      </div>
+    </div>
+  </div>
+</ion-content>
